@@ -13,7 +13,7 @@ bool parcurgere( int drum[], int init,int final[],int finall,string cuv)
 {
     int i,cont=0;
 //cout<<endl;
-    if(cuv.length()==0)
+    if(cuv.length()==0 || cuv=="lambda")
     {
         for( i=0; i<finall; i++)
             if(final[i]==init)
@@ -61,8 +61,6 @@ int main()
 
     }
     for(i=0; i<alfabet; ++i)
-
-
         f>>a[i];
 
     for(i=0; i<stari; ++i)
@@ -87,8 +85,18 @@ int main()
     char c;
 
     f>>p;///citirea cuvantului
-    // getline(f, p);
+   //  getline(f, p);
      cout<<p<<endl;
+     int drum[101];
+     if(p=="lambda")
+     {
+         if(parcurgere(drum,initiala,fin,finale,p))
+        cout<<"Drumul este acceptat";
+    else
+        cout<<"Drumul nu este acceptat";
+    return 0;
+     }
+
     while(f>>s1>>c>>s2)
     {
         j = 0;
@@ -114,6 +122,7 @@ int main()
             if(a[j]==c)
             break;
             graf[s3][j]=s4;
+          //  cout<<a[j]<<" "<<j<<endl;
 
 
 
@@ -121,7 +130,6 @@ int main()
 
 
 
-    int drum[101];
     for(int i=0; i<p.length(); ++i)
     {
          for(j=0;j<alfabet;++j)
